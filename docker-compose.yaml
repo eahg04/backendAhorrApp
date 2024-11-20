@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14.3
+    restart: always
+    ports:
+      - '5436:5432'
+    environment:
+      POSTGRES_USER: ${DB_USERNAME_DEV}
+      POSTGRES_PASSWORD: ${DB_PASSWORD_DEV}
+      POSTGRES_DB: ${DB_NAME_DEV}
+    container_name: ahorrAppDB
+    volumes:
+      - ./DB_Data:/var/lib/postgresql/data
